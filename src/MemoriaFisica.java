@@ -18,7 +18,7 @@ public class MemoriaFisica {
         return frames.stream()
                      .filter(f -> f.getPagina() == null)
                      .findFirst()
-                     .orElse(throw new NoSuchElementException("Frame não encontrado."));
+                     .orElse(null);
     }
 
     public void carregarPagina(Pagina pag, Frame frame, EntradaPagina entrada) {
