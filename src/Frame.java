@@ -16,4 +16,8 @@ public class Frame {
     private void atualizarTempoAcesso() {
         this.tempoCarregado = 0;
     }
+
+    public Pagina getPagina() {
+        return pagina;
+    }
 }
