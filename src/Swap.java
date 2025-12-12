@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class Swap {
     private List<Integer> estado;
@@ -21,10 +22,19 @@ public class Swap {
     }
 
     public void inserirPagina(Pagina pag) {
+        boolean encontrada = false;
+
         for(int i = 0; i <= tamanho - 1; i++) {
-            if(estado.get(i).equals(pag.getId()))
-                estado.remove(i);
+            if(estado.get(i).equals(pag.getId())) {
+                encontrada = true;
+                estado.remove(i);  
+                espacoUsado -= pag.tamanho();
+            }
         }
-        espacoUsado -= pag.tamanho();
+
+        if(!encontrada)
+            throw new NoSuchElementException("A página requisitada não está no Swap.");
     }
+
+
 }
