@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.Map;
 
-public class MIN implements IPolitica {
+public class MIN extends Politica {
     public String nome = "MIN";
     private List<Integer> requisicoes;
     private List<Integer> requisicoesUsadas;

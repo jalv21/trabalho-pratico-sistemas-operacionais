@@ -1,7 +1,7 @@
 import java.util.Map;
 
 public class Processo {
-    private static int ultimoId;
+    private static int ultimoId = 0;
     private final int id;
     private Map<Integer, EntradaPagina> tabelaPaginas;
     private int[] sequencia;

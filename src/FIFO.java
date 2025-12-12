@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-public class FIFO implements IPolitica {
+public class FIFO extends Politica {
     public String nome = "FIFO";
     private Queue<Integer> fila;
 

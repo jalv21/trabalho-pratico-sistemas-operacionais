@@ -1,7 +1,7 @@
 import java.util.List;
 import java.util.Map;
 
-public class RAND implements IPolitica {
+public class RAND extends Politica {
     public String nome = "RAND";
     
     @Override
