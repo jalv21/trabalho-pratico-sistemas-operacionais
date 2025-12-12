@@ -1,15 +1,21 @@
+import java.util.LinkedList;
+import java.util.List;
+
 public class MemoriaFisica {
-    private Frame[] frames;
+    private List<Frame> frames;
     private Configuracao config;
     private int proximoFrameDisponivel;
 
     public MemoriaFisica(Configuracao config) {
-        // TODO
+        this.config = config;
+        frames = new LinkedList<>();
     }
 
     public Frame encontrarFrameDisponivel() {
-        // TODO
-        return null;
+        if(cheia())
+            throw new IllegalStateException("A memória física está cheia! Não há frames disponíveis!");
+
+        return frames.stream().findFirst(getPagina() == null);
     }
 
     public void carregarPagina(Pagina pag, Frame frame, EntradaPagina entrada) {
@@ -17,6 +23,6 @@ public class MemoriaFisica {
     }
 
     public boolean cheia() {
-        return (frames.length == config.quantFrames());
+        return (frames.size() == config.quantFrames());
     }
 }
