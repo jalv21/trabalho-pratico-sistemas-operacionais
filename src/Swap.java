@@ -9,9 +9,14 @@ public class Swap {
     private int espacoUsado;
 
     public Swap(Configuracao config, int tamanho) {
+        setConfig(config);
         setTamanho(config.capacidadeSwap());
         this.espacoUsado = 0;
         this.estado = new ArrayList<>(tamanho);
+    }
+
+    private void setConfig(Configuracao config) {
+        this.config = config;
     }
 
     private void setTamanho(int tamanho) {
