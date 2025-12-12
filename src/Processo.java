@@ -31,4 +31,13 @@ public class Processo {
     private void setSequencia(int[] sequencia) {
         this.sequencia = sequencia;
     }
+
+    public boolean acessarPagina(int paginaId) {
+        EntradaPagina entrada = tabelaPaginas.get(paginaId);
+        return entrada != null && entrada.isPresente();
+    }
+
+    public EntradaPagina getEntradaPagina(int paginaId) {
+        return tabelaPaginas.get(paginaId);
+    }
 }
