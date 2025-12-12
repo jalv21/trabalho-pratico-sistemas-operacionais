@@ -10,7 +10,7 @@ public class Swap {
 
     public Swap(Configuracao config, int tamanho) {
         setConfig(config);
-        setTamanho(config.capacidadeSwap());
+        setTamanho(tamanho);
         this.espacoUsado = 0;
         this.estado = new ArrayList<>(tamanho);
     }
@@ -56,4 +56,8 @@ public class Swap {
         estado.addLast(pag.getId());
         espacoUsado += config.tamanhoPagina();
     }
+
+    public List<Integer> getEstado() {
+        return estado;
+    } 
 }

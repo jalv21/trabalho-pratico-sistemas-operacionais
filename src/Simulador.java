@@ -13,8 +13,19 @@ public class Simulador {
         this.swap = new Swap(config, config.capacidadeSwap());
     }
 
-    public void executar(int[] sequencia, IPolitica politica) {
-        // TODO Implementar o método de simulação
-        throw new UnsupportedOperationException("Método ainda não implementado.");
+    public String executar(int[] sequencia, IPolitica politica) {
+        StringBuilder resultado = new StringBuilder();
+        int contPageFaults = 0;
+        long inicio = System.nanoTime();
+
+        boolean pageFault = false;
+        for (int i = 0; i <= sequencia.length - 1; i++) {
+
+        }
+        
+        long fim = System.nanoTime();
+        double tempoExecucaoSegundos = (fim - inicio) / 1_000_000_000.0);
+
+        resultado.append(politica.nome + "\n" + tempoExecucaoSegundos + "\n" + contPageFaults + "\n" + swap.toString());
     }
 }
