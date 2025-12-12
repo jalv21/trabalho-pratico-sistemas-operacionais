@@ -15,7 +15,10 @@ public class MemoriaFisica {
         if(cheia())
             throw new IllegalStateException("A memória física está cheia! Não há frames disponíveis!");
 
-        return frames.stream().findFirst(getPagina() == null);
+        return frames.stream()
+                     .filter(f -> f.getPagina() == null)
+                     .findFirst()
+                     .orElse(throw new NoSuchElementException("Frame não encontrado."));
     }
 
     public void carregarPagina(Pagina pag, Frame frame, EntradaPagina entrada) {
