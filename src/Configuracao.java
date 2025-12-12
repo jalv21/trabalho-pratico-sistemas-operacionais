@@ -1,12 +1,22 @@
 public class Configuracao {
-    private int tamMemFisica;
-    private int tamMemVirtual;
-    private int arquitetura;
-    private int numPaginas;
-    private int numSequencias;
-    private int tamPagina;
-    private int capacidadeSwap;
+    private int tamMemFisica;   // Tamanho da memória física em bytes
+    private int tamMemVirtual;  // Tamanho da memória virtual, deve ser maior ou igual à memória física
+    private int arquitetura;    // Indica arquitetura da CPU (64 ou 32), em bits.
+    private int numPaginas;     // Número de páginas virtuais no processo.
+    private int numSequencias;  // Número de sequências de requisições a serem processadas
+    private int tamPagina;      // Tamanho de cada página alocada na memória virtual.
+    private int capacidadeSwap; // Capacidade mínima do Swap para fazer a substituição das páginas.
 
+    /**
+     * Construtor da classe. Classe Configuração guarda os dados lidos do arquivo de entrada e 
+     * os processa para que outras partes do sistema possam usá-las.
+     * 
+     * @param tamMemFisica O tamanho, em bytes, da memória física
+     * @param tamMemVirtual O tamanho, em bytes, da memória virtual. Deve ser maior ou igual à mem. física.
+     * @param arquitetura A String que representa a arquitetura da CPU (x86 ou x64) que será convertida em inteiro (em bits)
+     * @param numPaginas O número de páginas virtuais na memória.
+     * @param numSequencias O número de sequências de requisições a serem processadas.
+     */
     public Configuracao(int tamMemFisica, int tamMemVirtual, String arquitetura, int numPaginas, int numSequencias) {
         setTamMemFisica(tamMemFisica);
         setTamMemVirtual(tamMemVirtual);
@@ -14,12 +24,14 @@ public class Configuracao {
         setNumPaginas(numPaginas);
         setNumSequencias(numSequencias);
 
+        // Calcula os atributos indicando tamanho de página e capacidade mínima de Swap
         this.tamPagina = calcularTamPagina();
         this.capacidadeSwap = calcularCapacidadeSwap();
     }
 
     private void setTamMemFisica(int tamMemFisica) {
         if(tamMemFisica <= 0)
+            // Tamanho da memória física não pode ser negativo ou zero.
             throw new IllegalArgumentException("Tamanho inválido para a memória física!");
 
         this.tamMemFisica = tamMemFisica;
@@ -27,6 +39,7 @@ public class Configuracao {
 
     private void setTamMemVirtual(int tamMemVirtual) {
         if(tamMemVirtual < tamMemFisica)
+            // Tamanho da memória virtual não pode ser menor que a memória física.
             throw new IllegalArgumentException("Memória virtual deve ser maior ou igual à memória física!");
 
         this.tamMemVirtual = tamMemVirtual;
@@ -34,6 +47,7 @@ public class Configuracao {
 
     private void setArquitetura(String arquitetura) {
         if(!arquitetura.equals("x86") && !arquitetura.equals("x64"))
+            // Caso a String da arquitetura não represente a arquiteura de 64 ou 32 bits, lança exceção.
             throw new IllegalArgumentException("Arquitetura de CPU inválida! Suporte apenas para 64 e 32 bits!");
         
         else if(arquitetura.equals("x86"))
@@ -56,10 +70,19 @@ public class Configuracao {
         this.numSequencias = numSequencias;
     }
 
+    /**
+     * Calcula o tamanho das páginas virtuais com base no tamanho da memória virtual e o número de páginas.
+     * @return tamanho da memória virtual divido pelo número de páginas.
+     */
     private int calcularTamPagina() {
         return (tamMemVirtual / numPaginas);
     }
 
+    /**
+     * Calcula a capacidade mínima de Swap (em bytes) com base no tamanho da memória virtual o 
+     * tamanho da memória física.
+     * @return tamanho da memória virtual menos o tamanho da memória física
+     */
     private int calcularCapacidadeSwap() {
         return (this.tamMemVirtual - this.tamMemFisica);
     }
