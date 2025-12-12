@@ -20,4 +20,12 @@ public class Frame {
     public Pagina getPagina() {
         return pagina;
     }
+
+    public void setPagina(Pagina pag) {
+        this.pagina = pag;
+    }
+
+    public int getNumFrame() {
+        return numFrame;
+    }
 }

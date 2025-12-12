@@ -10,7 +10,7 @@ public class MemoriaFisica {
     public MemoriaFisica(Configuracao config) {
         this.config = config;
         frames = new ArrayList<>(config.quantFrames());
-        atualizarOcupados();
+        framesOcupados = new ArrayList<>();
     }
 
     public Frame encontrarFrameDisponivel() {

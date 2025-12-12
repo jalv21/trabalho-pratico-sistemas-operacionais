@@ -25,4 +25,8 @@ public class EntradaPagina {
         // TODO Método para verificar se uma entrada está no Swap
         throw new UnsupportedOperationException("Método ainda não implementado.");
     }
+
+    public void setNumFrame(int numFrame) {
+        this.numFrame = numFrame;
+    }
 }
