@@ -1,7 +1,7 @@
 public class Configuracao {
     private int tamMemFisica;
     private int tamMemVirtual;
-    private String arquitetura;
+    private int arquitetura;
     private int numPaginas;
     private int numSequencias;
     private int tamPagina;
@@ -35,8 +35,11 @@ public class Configuracao {
     private void setArquitetura(String arquitetura) {
         if(!arquitetura.equals("x86") && !arquitetura.equals("x64"))
             throw new IllegalArgumentException("Arquitetura de CPU inválida! Suporte apenas para 64 e 32 bits!");
-
-        this.arquitetura = arquitetura;
+        
+        else if(arquitetura.equals("x86"))
+            this.arquitetura = 64;
+        else
+            this.arquitetura = 32;
     }
 
     private void setNumPaginas(int numPaginas) {
