@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class Swap {
+    private Configuracao config;
     private List<Integer> estado;
     private int tamanho;
     private int espacoUsado;
@@ -22,7 +23,7 @@ public class Swap {
     }
 
     public boolean vazio() {
-        return (espacoUsado == 0);
+        return (espacoUsado <= config.tamanhoPagina());
     }
 
     public void inserirPagina(Pagina pag) {
@@ -35,7 +36,7 @@ public class Swap {
             if(estado.get(i).equals(pag.getId())) {
                 encontrada = true;
                 estado.remove(i);  
-                espacoUsado -= Pagina.TAMANHO;
+                espacoUsado -= config.tamanhoPagina();
             }
         }
 
@@ -48,6 +49,6 @@ public class Swap {
             throw new IllegalStateException("Não é possível alocar página no Swap: não há espaço suficiente!");
 
         estado.addLast(pag.getId());
-        espacoUsado += Pagina.TAMANHO;
+        espacoUsado += config.tamanhoPagina();
     }
 }
