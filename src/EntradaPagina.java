@@ -9,6 +9,13 @@ public class EntradaPagina {
         presente = modificada = referenciada = false;
     }
 
+    public EntradaPagina(int numFrame, boolean presente, boolean modificada, boolean referenciada) {
+        this.numFrame = numFrame;
+        this.presente = presente;
+        this.modificada = modificada;
+        this.referenciada = referenciada;
+    }
+
     public boolean isPresente() {
         return presente;
     }

@@ -28,6 +28,9 @@ public class MemoriaFisica {
         
         frame.setPagina(pag);
         entrada.setNumFrame(frame.getNumFrame());
+        entrada.setPresente(true);
+        entrada.setReferenciada(true);
+
         frames.add(frame);
         atualizarOcupados();
     }
