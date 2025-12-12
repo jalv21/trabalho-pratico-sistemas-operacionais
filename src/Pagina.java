@@ -3,7 +3,7 @@ public class Pagina {
     private int id;
 
     public Pagina() {
-        setId(ultimoId++);;
+        setId(ultimoId++);
     }
 
     public int getId() {
