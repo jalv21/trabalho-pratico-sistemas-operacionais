@@ -3,9 +3,9 @@ public class Simulador {
     private Processo processo;
     private MemoriaFisica memoria;
     private Swap swap;
-    private IPolitica politica;
+    private Politica politica;
 
-    public Simulador(Configuracao config, Processo processo, IPolitica politica) {
+    public Simulador(Configuracao config, Processo processo, Politica politica) {
         this.config = config;
         this.processo = processo;
         this.politica = politica;
@@ -13,7 +13,7 @@ public class Simulador {
         this.swap = new Swap(config, config.capacidadeSwap());
     }
 
-    public String executar(int[] sequencia, IPolitica politica) {
+    public String executar(int[] sequencia, Politica politica) {
         StringBuilder resultado = new StringBuilder();
         int contPageFaults = 0;
         long inicio = System.nanoTime();
@@ -26,6 +26,6 @@ public class Simulador {
         long fim = System.nanoTime();
         double tempoExecucaoSegundos = (fim - inicio) / 1_000_000_000.0;
 
-        resultado.append(politica.nome + "\n" + tempoExecucaoSegundos + "\n" + contPageFaults + "\n" + swap.toString());
+        return (politica.nome + "\n" + tempoExecucaoSegundos + "\n" + contPageFaults + "\n" + swap.toString());
     }
 }

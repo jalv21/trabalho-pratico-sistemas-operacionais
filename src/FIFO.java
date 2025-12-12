@@ -3,7 +3,6 @@ import java.util.Map;
 import java.util.Queue;
 
 public class FIFO extends Politica {
-    public String nome = "FIFO";
     private Queue<Integer> fila;
 
     @Override

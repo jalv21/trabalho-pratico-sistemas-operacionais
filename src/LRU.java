@@ -2,7 +2,6 @@ import java.util.List;
 import java.util.Map;
 
 public class LRU extends Politica {
-    public String nome = "LRU";
     private List<Integer> historicoAcessos;
     
     @Override
