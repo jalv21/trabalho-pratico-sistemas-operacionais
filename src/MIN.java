@@ -2,6 +2,10 @@ import java.util.List;
 import java.util.Map;
 
 public class MIN implements IPolitica {
+    public String nome = "MIN";
+    private List<Integer> requisicoes;
+    private List<Integer> requisicoesUsadas;
+    
     @Override
     public Frame selecionarPagina(List<Frame> frames, Map<Integer, EntradaPagina> tabelaPaginas, int acessoAtual, List<Integer> requisicoesFuturas) {
         // TODO Implementar a lógica de seleção MIN de página

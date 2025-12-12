@@ -24,7 +24,7 @@ public class Simulador {
         }
         
         long fim = System.nanoTime();
-        double tempoExecucaoSegundos = (fim - inicio) / 1_000_000_000.0);
+        double tempoExecucaoSegundos = (fim - inicio) / 1_000_000_000.0;
 
         resultado.append(politica.nome + "\n" + tempoExecucaoSegundos + "\n" + contPageFaults + "\n" + swap.toString());
     }
