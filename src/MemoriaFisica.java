@@ -1,14 +1,16 @@
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public class MemoriaFisica {
     private List<Frame> frames;
+    private List<Frame> framesOcupados; 
     private Configuracao config;
-    private int proximoFrameDisponivel;
 
     public MemoriaFisica(Configuracao config) {
         this.config = config;
-        frames = new LinkedList<>();
+        frames = new ArrayList<>(config.quantFrames());
+        atualizarOcupados();
     }
 
     public Frame encontrarFrameDisponivel() {
@@ -16,16 +18,25 @@ public class MemoriaFisica {
             throw new IllegalStateException("A memória física está cheia! Não há frames disponíveis!");
 
         return frames.stream()
-                     .filter(f -> f.getPagina() == null)
+                     .filter(f -> f == null)
                      .findFirst()
-                     .orElse(null);
+                     .orElseThrow(() -> new NoSuchElementException("Não há frames disponíveis!"));
     }
 
-    public void carregarPagina(Pagina pag, Frame frame, EntradaPagina entrada) {
-        // TODO
+    public void carregarPagina(Pagina pag, EntradaPagina entrada) {
+        Frame frame = encontrarFrameDisponivel();
+        
+        frame.setPagina(pag);
+        entrada.setNumFrame(frame.getNumFrame());
+        frames.add(frame);
+        atualizarOcupados();
     }
 
     public boolean cheia() {
-        return (frames.size() == config.quantFrames());
+        return (framesOcupados.size() == frames.size());
+    }
+
+    private void atualizarOcupados() {
+        framesOcupados = frames.stream().filter(f -> f != null).toList();
     }
 }
