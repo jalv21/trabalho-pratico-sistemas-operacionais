@@ -29,4 +29,16 @@ public class EntradaPagina {
     public void setNumFrame(int numFrame) {
         this.numFrame = numFrame;
     }
+
+    public void setPresente(boolean presente) {
+        this.presente = presente;
+    }
+
+    public void setModificada(boolean modificada) {
+        this.modificada = modificada;
+    }
+
+    public void setReferenciada(boolean referenciada) {
+        this.referenciada = referenciada;
+    }
 }
