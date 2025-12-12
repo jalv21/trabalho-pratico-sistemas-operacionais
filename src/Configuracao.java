@@ -5,6 +5,7 @@ public class Configuracao {
     private int numPaginas;     // Número de páginas virtuais no processo.
     private int numSequencias;  // Número de sequências de requisições a serem processadas
     private int tamPagina;      // Tamanho de cada página alocada na memória virtual.
+    private int quantFrames;    // Quantidade de frames na memória física
     private int capacidadeSwap; // Capacidade mínima do Swap para fazer a substituição das páginas.
 
     /**
@@ -24,9 +25,10 @@ public class Configuracao {
         setNumPaginas(numPaginas);
         setNumSequencias(numSequencias);
 
-        // Calcula os atributos indicando tamanho de página e capacidade mínima de Swap
+        // Calcula os atributos indicando tamanho de página, capacidade mínima de Swap e quantidade de frames
         this.tamPagina = (tamMemVirtual / numPaginas);
         this.capacidadeSwap = (tamMemVirtual - tamMemFisica);
+        this.quantFrames = (tamMemFisica / tamPagina);
     }
 
     private void setTamMemFisica(int tamMemFisica) {
@@ -71,10 +73,14 @@ public class Configuracao {
     }
 
     public int tamanhoPagina() {
-        return (tamMemVirtual / numPaginas);
+        return tamPagina;
     }
 
     public int capacidadeSwap() {
-        return (this.tamMemVirtual - this.tamMemFisica);
+        return capacidadeSwap;
+    }
+
+    public int quantFrames() {
+        return quantFrames;
     }
 }
