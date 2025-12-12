@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.1"><zoom_level>14</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>588</x><y>448</y><w>392</w><h>224</h></coordinates><panel_attributes>Configuracao
+<diagram program="umletino" version="15.1"><zoom_level>14</zoom_level><help_text></help_text><element><id>UMLClass</id><coordinates><x>322</x><y>448</y><w>392</w><h>224</h></coordinates><panel_attributes>Configuracao
 --
 - tamMemFisica: int
 - tamMemVirtual: int
@@ -7,7 +7,7 @@
 - tamPagina: int
 - capacidadeSwap: int
 --
-+ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1736</x><y>224</y><w>476</w><h>182</h></coordinates><panel_attributes>Processo
++ toString(): String</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1470</x><y>224</y><w>476</w><h>182</h></coordinates><panel_attributes>Processo
 --
 - id: int
 - tabelaDePagina: Map&lt;int, EntradaPagina&gt;
@@ -17,7 +17,7 @@
 + getEntradaPagina(entradaPaginaId: int): EntradaPagina
 
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1050</x><y>462</y><w>448</w><h>196</h></coordinates><panel_attributes>Simulador
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>784</x><y>462</y><w>448</w><h>196</h></coordinates><panel_attributes>Simulador
 --
 - configuracao: Configuracao
 - processo: Processo
@@ -25,14 +25,14 @@
 - swap: Swap
 - politica: IPolitica
 --
-+ executar(sequencia: int[], politica: IPolitica): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>644</x><y>756</y><w>448</w><h>168</h></coordinates><panel_attributes>Frame
++ executar(sequencia: int[], politica: IPolitica): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>378</x><y>756</y><w>448</w><h>168</h></coordinates><panel_attributes>Frame
 --
 - numFrame: int
 - pagina: Pagina
 - tempoCarregado: long
 --
 + vazio(): boolean
-+ atualizarTempoAcesso(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1652</x><y>462</y><w>658</w><h>196</h></coordinates><panel_attributes>MemoriaFisica
++ atualizarTempoAcesso(): void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1386</x><y>462</y><w>658</w><h>196</h></coordinates><panel_attributes>MemoriaFisica
 --
 - frames: List&lt;Frame&gt;
 - proximoFrameDisponivel: int
@@ -40,38 +40,38 @@
 + encontrarFrameDisponivel(): Frame
 + carregarPagina(pag: Pagina, frame: Frame, entrada: EntradaPagina): void
 + cheia(): boolean
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1050</x><y>210</y><w>448</w><h>168</h></coordinates><panel_attributes>Swap
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>784</x><y>210</y><w>448</w><h>168</h></coordinates><panel_attributes>Swap
 --
 - tamanho: int
 - espacoUsado: int
 --
 + podeInserir(): boolean
 + inserirPagina(pag: Pagina): void
-+ removerPagina(pag: Pagina): void	</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>294</x><y>756</y><w>238</w><h>98</h></coordinates><panel_attributes>Pagina
++ removerPagina(pag: Pagina): void	</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>28</x><y>756</y><w>238</w><h>98</h></coordinates><panel_attributes>Pagina
 --
 - id: int
 --
-+ getId(): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1400</x><y>0</y><w>378</w><h>168</h></coordinates><panel_attributes>EntradaPagina
++ getId(): int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1134</x><y>0</y><w>378</w><h>168</h></coordinates><panel_attributes>EntradaPagina
 --
 - numFrame: int
 - presente: boolean
 - modificada: boolean
 - referenciada: boolean
 --
-+ estaNoSwap(): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1134</x><y>756</y><w>1092</w><h>168</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
++ estaNoSwap(): boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>868</x><y>756</y><w>1092</w><h>168</h></coordinates><panel_attributes>&lt;&lt;interface&gt;&gt;
 IPolitica
 --
 --
-+ selecionarPagina(frames: List&lt;Frame&gt;, tabelaPagina: Map&lt;int, EntradaPagina&gt;, acessoAtual: int, requisicoesFuturas: List&lt;int&gt;): Frame</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1358</x><y>994</y><w>308</w><h>98</h></coordinates><panel_attributes>FIFO
++ selecionarPagina(frames: List&lt;Frame&gt;, tabelaPagina: Map&lt;int, EntradaPagina&gt;, acessoAtual: int, requisicoesFuturas: List&lt;int&gt;): Frame</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1092</x><y>994</y><w>308</w><h>98</h></coordinates><panel_attributes>FIFO
 --
 --
-+ selecionarPagina(...): Frame</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1680</x><y>994</y><w>308</w><h>98</h></coordinates><panel_attributes>LRU
++ selecionarPagina(...): Frame</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1414</x><y>994</y><w>308</w><h>98</h></coordinates><panel_attributes>LRU
 --
 --
-+ selecionarPagina(...): Frame</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2002</x><y>994</y><w>308</w><h>98</h></coordinates><panel_attributes>MIN
++ selecionarPagina(...): Frame</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1736</x><y>994</y><w>308</w><h>98</h></coordinates><panel_attributes>MIN
 --
 --
-+ selecionarPagina(...): Frame</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1022</x><y>994</y><w>308</w><h>98</h></coordinates><panel_attributes>RAND
++ selecionarPagina(...): Frame</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>756</x><y>994</y><w>308</w><h>98</h></coordinates><panel_attributes>RAND
 --
 --
-+ selecionarPagina(...): Frame</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>966</x><y>546</y><w>112</w><h>42</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1484</x><y>252</y><w>280</w><h>308</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;200;70;200;70;10;180;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1484</x><y>560</y><w>196</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1260</x><y>364</y><w>42</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>406</x><y>294</y><w>672</w><h>490</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>460;10;10;10;10;330</additional_attributes></element><element><id>Relation</id><coordinates><x>518</x><y>798</y><w>154</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1246</x><y>112</y><w>182</w><h>126</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>110;10;10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>1260</x><y>644</y><w>42</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>266</x><y>42</y><w>1162</w><h>868</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>810;10;10;10;10;600;270;600</additional_attributes></element><element><id>Relation</id><coordinates><x>1764</x><y>14</y><w>560</w><h>476</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>380;320;380;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1764</x><y>56</y><w>238</w><h>196</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>150;120;150;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>826</x><y>588</y><w>1610</w><h>588</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>1070;10;1130;10;1130;400;10;400;10;240</additional_attributes></element><element><id>Relation</id><coordinates><x>1162</x><y>924</y><w>42</w><h>98</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>1498</x><y>924</y><w>42</w><h>98</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>1820</x><y>924</y><w>42</w><h>98</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>2142</x><y>924</y><w>42</w><h>98</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>1078</x><y>840</y><w>84</w><h>42</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>40;10;10;10</additional_attributes></element></diagram>
++ selecionarPagina(...): Frame</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>700</x><y>546</y><w>112</w><h>42</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>10;10;60;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1218</x><y>252</y><w>280</w><h>308</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;200;70;200;70;10;180;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1218</x><y>560</y><w>196</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;120;10</additional_attributes></element><element><id>Relation</id><coordinates><x>994</x><y>364</y><w>42</w><h>126</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;70;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>140</x><y>294</y><w>672</w><h>490</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>460;10;10;10;10;330</additional_attributes></element><element><id>Relation</id><coordinates><x>252</x><y>798</y><w>154</w><h>42</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>90;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>980</x><y>112</y><w>182</w><h>126</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>110;10;10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>994</x><y>644</y><w>42</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>0</x><y>42</y><w>1162</w><h>868</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>810;10;10;10;10;600;270;600</additional_attributes></element><element><id>Relation</id><coordinates><x>1498</x><y>14</y><w>560</w><h>476</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>380;320;380;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1498</x><y>56</y><w>238</w><h>196</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>150;120;150;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>560</x><y>588</y><w>1610</w><h>588</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>1070;10;1130;10;1130;400;10;400;10;240</additional_attributes></element><element><id>Relation</id><coordinates><x>896</x><y>924</y><w>42</w><h>98</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>1232</x><y>924</y><w>42</w><h>98</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>1554</x><y>924</y><w>42</w><h>98</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>1876</x><y>924</y><w>42</w><h>98</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>Relation</id><coordinates><x>812</x><y>840</y><w>84</w><h>42</h></coordinates><panel_attributes>lt=&lt;-</panel_attributes><additional_attributes>40;10;10;10</additional_attributes></element></diagram>
