@@ -25,8 +25,8 @@ public class Configuracao {
         setNumSequencias(numSequencias);
 
         // Calcula os atributos indicando tamanho de página e capacidade mínima de Swap
-        this.tamPagina = calcularTamPagina();
-        this.capacidadeSwap = calcularCapacidadeSwap();
+        this.tamPagina = (tamMemVirtual / numPaginas);
+        this.capacidadeSwap = (tamMemVirtual - tamMemFisica);
     }
 
     private void setTamMemFisica(int tamMemFisica) {
@@ -70,20 +70,11 @@ public class Configuracao {
         this.numSequencias = numSequencias;
     }
 
-    /**
-     * Calcula o tamanho das páginas virtuais com base no tamanho da memória virtual e o número de páginas.
-     * @return tamanho da memória virtual divido pelo número de páginas.
-     */
-    private int calcularTamPagina() {
+    public int tamanhoPagina() {
         return (tamMemVirtual / numPaginas);
     }
 
-    /**
-     * Calcula a capacidade mínima de Swap (em bytes) com base no tamanho da memória virtual o 
-     * tamanho da memória física.
-     * @return tamanho da memória virtual menos o tamanho da memória física
-     */
-    private int calcularCapacidadeSwap() {
+    public int capacidadeSwap() {
         return (this.tamMemVirtual - this.tamMemFisica);
     }
 }
