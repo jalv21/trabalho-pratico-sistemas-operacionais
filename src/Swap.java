@@ -22,13 +22,16 @@ public class Swap {
     }
 
     public void inserirPagina(Pagina pag) {
+        if(espacoUsado < pag.tamanho)
+            throw new IllegalStateException("Não foi possível remover página do Swap: não há páginas alocadas.");
+
         boolean encontrada = false;
 
         for(int i = 0; i <= tamanho - 1; i++) {
             if(estado.get(i).equals(pag.getId())) {
                 encontrada = true;
                 estado.remove(i);  
-                espacoUsado -= pag.tamanho();
+                espacoUsado -= pag.tamanho;
             }
         }
 
