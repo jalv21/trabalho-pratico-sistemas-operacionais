@@ -42,4 +42,8 @@ public class MemoriaFisica {
     private void atualizarOcupados() {
         framesOcupados = frames.stream().filter(f -> f != null).toList();
     }
+
+    public List<Frame> getFrames() {
+        return frames;
+    }
 }

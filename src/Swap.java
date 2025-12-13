@@ -31,30 +31,30 @@ public class Swap {
         return (espacoUsado <= config.tamanhoPagina());
     }
 
-    public void inserirPagina(Pagina pag) {
+    public Pagina inserirPagina(int paginaId) {
         if(vazio())
             throw new IllegalStateException("Não foi possível remover página do Swap: não há páginas alocadas.");
 
-        boolean encontrada = false;
-
         for(int i = 0; i <= tamanho - 1; i++) {
-            if(estado.get(i).equals(pag.getId())) {
-                encontrada = true;
+            if(estado.get(i).equals(paginaId)) {
+                Pagina removida = estado.get(i);
                 estado.remove(i);  
                 espacoUsado -= config.tamanhoPagina();
+                return pag;
             }
         }
 
-        if(!encontrada)
-            throw new NoSuchElementException("A página requisitada não está no Swap.");
+        throw new NoSuchElementException("A página requisitada não está no Swap.");
     }
 
-    public void removerPagina(Pagina pag) {
+    public Pagina removerPagina(Pagina pag) {
         if(cheio())
             throw new IllegalStateException("Não é possível alocar página no Swap: não há espaço suficiente!");
 
         estado.addLast(pag.getId());
         espacoUsado += config.tamanhoPagina();
+
+        return pag;
     }
 
     public List<Integer> getEstado() {

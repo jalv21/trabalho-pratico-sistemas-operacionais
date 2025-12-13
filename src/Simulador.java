@@ -14,13 +14,12 @@ public class Simulador {
     }
 
     public String executar(int[] sequencia, Politica politica) {
-        StringBuilder resultado = new StringBuilder();
         int contPageFaults = 0;
         long inicio = System.nanoTime();
 
         boolean pageFault = false;
         for (int i = 0; i <= sequencia.length - 1; i++) {
-
+            // TODO
         }
         
         long fim = System.nanoTime();
